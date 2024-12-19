@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TKB</title>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
+    <style>
+      h1 {
+        text-align: center;
+      }
+
+      form {
+        text-align: center;
+      }
+
+      body {
+        background-color: black;
+        color: white;
+      }
+
+    </style>
+</head>
+<body>
+  
+    <h1>Calendrier Interactif</h1>
+    <form id="eventForm">
+      <input type="text" id="eventTitle" placeholder="Titre de l'événement" required>
+      <label for="startDate">Date de début :</label>
+      <input type="date" id="startDate" required>
+      <label for="startTime">Heure de début :</label>
+      <input type="time" id="startTime" required>
+      <label for="endDate">Date de fin :</label>
+      <input type="date" id="endDate" required>
+      <label for="endTime">Heure de fin :</label>
+      <input type="time" id="endTime" required>
+      <button type="submit">Ajouter un événement</button>
+  </form>
+  <div id="calendar"></div>
+
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar/index.global.min.js'></script>
+    <script src="../assets/js/fullcalendar.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TKB</title>
+
+<style>
+    body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.theater-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    border: 10px solid #8b0000;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
+    background-color: black;
+    overflow: hidden;
+}
+
+video {
+    width: 100%;
+    display: block;
+}
+
+.theater-container::before,
+.theater-container::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, #8b0000 20%, #600000 80%);
+    top: 0;
+    z-index: 2;
+    animation: openCurtains 3s forwards;
+}
+
+.theater-container::before {
+    left: 0;
+}
+
+.theater-container::after {
+    right: 0;
+}
+
+@keyframes openCurtains {
+    0% { width: 50%; }
+    100% { width: 0; }
+}
+
+.bouton_retour {
+            text-align: center;
+        }
+
+a {
+    text-align: center;
+}
+
+</style>
+
+</head>
+<body>
+
+    <div class="theater-container">
+        <div class="curtains">
+            <video controls poster="affiche_theatre.jpg">
+                <source src="../assets/videos/Compromis.mp4" type="video/mp4">
+                Votre navigateur ne prend pas en charge la balise vidéo.
+            </video>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,387 @@
+body {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    overflow-x: hidden;
+    font-family: Sans-Serif;
+    margin: 0;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+h5 {
+  text-align: center;
+}
+
+p {
+    color: white;
+    text-align: center;
+}
+
+hr {
+  border: 15px solid rgb(#5c5a5a);
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ /* Navigation Bar */ 
+  .menu-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background: #7D0D09;
+    color: #ffffff;
+    padding: 20px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+    box-sizing: border-box;
+  }
+  
+  .menu-container a {
+    text-decoration: none;
+    color: #110bd6;
+    transition: color 0.3s ease;
+  }
+  
+  .menu-container a:hover {
+    color: #3700ff;
+  }
+  
+  .menu-container input {
+    display: block;
+    width: 35px;
+    height: 25px;
+    margin: 0;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+  }
+  
+  /* Burger menu */
+  .menu-container span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #ffffff;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+  }
+  
+  .menu-container span:first-child {
+    transform-origin: 0% 0%;
+  }
+  
+  .menu-container span:nth-child(3) {
+    transform-origin: 0% 100%;
+  }
+  
+  .menu-container input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(3px,-1px);
+    background: #110bd6;
+  }
+  
+  .menu-container input:checked ~ span:nth-child(4) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  
+  .menu-container input:checked ~ span:nth-child(3) {
+    transform: rotate(-45deg) translate(-5px,11px);
+  }
+  
+  .menu ul {
+    list-style: none;
+  }
+  
+  .menu li {
+    padding: 10px 0;
+    font-size: 22px;
+  }
+  
+  /* mobile styles */
+  @media only screen and (max-width: 999px) { 
+    .menu-container {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    
+    .menu {
+      position: absolute;
+      box-sizing: border-box;
+      width: 300px;
+      right: -300px;
+      top: 0;
+      margin: -20px;
+      padding: 75px 50px 50px;
+      background: #ffffff;
+      -webkit-font-smoothing: antialiased;
+      /* to stop flickering of text in safari */
+      transform-origin: 0% 0%;
+      transform: translateX(0%);
+      transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    }
+  
+    .menu-container input:checked ~ .menu {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* desktop styles */
+  @media only screen and (min-width: 1000px) { 
+    .menu-container {
+      width: 100%;
+    }
+  
+    .menu-container a {
+      color: #ffffff;
+    }
+  
+    .menu-container input {
+      display: none;
+    }
+  
+    /* Burger menu */
+    .menu-container span {
+      display: none;
+    }
+  
+    .menu {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    .menu ul {
+      display: flex;
+      padding: 0;
+    }
+  
+    .menu li {
+      padding: 0 20px;
+    }
+  }
+
+  
+
+  ul {
+    color: white;
+    text-align: center;
+    list-style: none;
+  }
+
+  .masques {
+    display: flex;
+    justify-content: center;
+  }
+
+  .presentation {
+    display: flex;
+    justify-content: center;
+  }
+
+  .distribution {
+    display: flex;
+    justify-content: center;
+  }
+
+  .affiche {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 500px;
+  }
+
+  .footer {
+    width: 100%;
+    background-color: #7D0D09;
+    padding: 5px;
+  }
+
+  .Anniversaire30TKB {
+    display: flex;
+    justify-content: center;
+  }
+
+  iframe {
+    width: 120px;
+    height: 90px;
+  }
+
+  .video {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .encours {
+    display: flex;
+  }
+
+
+.column {
+  display: flex;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
+.boutons { 
+display: flex;
+align-items: center;
+}
+
+#calendar {
+  width: 50%;
+  height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  display: flex;
+  
+}
+
+.évènement {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.Image-bienvenue {
+  width: 500px;
+  height: auto;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.page {
+  display: flex;
+}
+
+table {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.medias, td {
+  text-align: center;
+}
+
+.boutons_dossiers {
+ text-align: center;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.btn-group .btn {
+  display: flex;
+  margin: 0 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-group .btn.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-group .btn:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+/* carousel en cours */
+
+.carousel-item img {
+  width: 100%;           /* Largeur maximale du conteneur */
+  height: 500px;         /* Hauteur personnalisée */
+  object-fit: cover;     /* Ajuste l'image sans déformer */
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  border-radius: 10px;
+}
+
+/* fin carousel en cours */
+
+ /* carousel */
+
+
+
+ /* fin carousel */
+
+.form_connexion {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+#bouton_connexion {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.rideau-gauche {
+  height: 100%;
+}
+
+.rideau-droite {
+  height: 100%;
+  margin-right: 0;
+}
+
+#calendar {
+  width: 80%;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-top: 50px;
+}
+

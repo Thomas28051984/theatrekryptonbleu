@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TKB</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+
+    h1 { 
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .carousel-container {
+        position: relative;
+        width: 1000px;
+        height: 600px;
+        margin: auto;
+        overflow: hidden;
+    }
+    .carousel-container img {
+        width: 100%;
+        height: auto;
+    }
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+    .prev {
+        left: 10px;
+    }
+    .next {
+        right: 10px;
+    }
+    .button-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .button-container button {
+        margin: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    button{
+      background-color: crimson;
+      color: white;
+      border-radius: 50%;
+    }
+
+    .bouton_retour {
+            text-align: center;
+        }
+</style>
+</head>
+<body>
+  <h1>ALBUM PHOTOS</h1>
+
+    <!-- Boutons pour changer de dossier -->
+    <div class="button-container">
+        <button onclick="loadFolder('Naïs')">Naïs</button>
+        <button onclick="loadFolder('Lagrandemuraille')">La grande Muraille</button>
+        <button onclick="loadFolder('Jeuxdecannes')">Jeux de cannes</button>
+        <button onclick="loadFolder('Cequevoitfox')">Ce que voit Fox</button>
+        <button onclick="loadFolder('Huitfemmes')">Huit femmes</button>
+        <button onclick="loadFolder('Soudainletedernier')">Soudain l'été dernier</button>
+        <button onclick="loadFolder('Delirium')">Délirium</button>
+        <button onclick="loadFolder('Festivaloffavignon')">Festival off Avignon</button>
+        <br>
+        <button onclick="loadFolder('Perenoelordure')">Une heure chez les autres</button>
+        <button onclick="loadFolder('Lespalmes')">Les palmes de Monsieur SCHUTZ</button>
+        <button onclick="loadFolder('Conversation')">Conversations après un enterrement</button>
+        <button onclick="loadFolder('Uncoindazur')">Un coin d'Azur</button>
+        <button onclick="loadFolder('Lesrats')">Les Rats</button>
+        <button onclick="loadFolder('Mastication')">La mastication des morts</button>
+        <button onclick="loadFolder('Lerepas')">Le repas des Fauves</button>
+        
+    </div>
+
+    <!-- Carrousel -->
+    <div class="carousel-container">
+        <img id="carousel-image" src="" alt="Image du carrousel">
+        <button class="carousel-btn prev" onclick="changeImage(-1)">&#10094;</button>
+        <button class="carousel-btn next" onclick="changeImage(1)">&#10095;</button>
+    </div>
+
+    <div class="bouton_retour">
+      <a href="accueil.html">
+      <h3>Retour</h3>
+      </a>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        let imagePaths = [];
+
+        // Fonction pour charger les images d'un dossier
+        function loadFolder(folderName) {
+            fetch("../assets/json/images.json") // Charge le fichier JSON
+                .then(response => response.json())
+                .then(data => {
+                    if (data[folderName]) {
+                        imagePaths = data[folderName]; // Récupère les images du dossier
+                        currentIndex = 0; // Réinitialise l'index
+                        showImage(currentIndex); // Affiche la première image
+                      } else {
+                        console.error("Dossier non trouvé :", folderName);
+                    }
+                })
+                .catch(error => console.error("Erreur lors du chargement :", error));
+        }
+
+        // Fonction pour afficher une image
+        function showImage(index) {
+            if (imagePaths.length > 0) {
+                document.getElementById('carousel-image').src = imagePaths[index];
+            } else {
+                document.getElementById('carousel-image').src = ""; // Pas d'image
+            }
+        }
+
+        // Fonction pour naviguer dans le carrousel
+        function changeImage(step) {
+            currentIndex += step;
+            if (currentIndex >= imagePaths.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = imagePaths.length - 1;
+            showImage(currentIndex);
+        }
+
+        window.onload = function () {
+            loadFolder("Naïs"); // Spécifiez le dossier par défaut ici
+        };
+    </script> 
+</body>
+</html>
